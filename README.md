@@ -31,17 +31,18 @@ Adm@123
 «Может потребоваться перезапуск при инициализации Бд»
 
 4. Web api "~/api/currencies" возвращает список курсов валют
-пагинация реализована через Odata пример команды "~/api/currencies?$Top=2"
-"~/api/currency/Id" по номеру возвращает данные по Id.
+пагинация реализована через Odata пример команды "/api/currencies?$Top=2"
+"/api/currency/Id" по номеру возвращает данные по Id.
 
 Все API закрыты авторизацией поэтому требуется регистрация или токен для входа.
 Зарегистрироваться можно по форме выше или послав POST запрос с помощью fiddler или 
 postman на “~/api/Account/Register” указав {"Email":"alice@example.com","Password":"Password1!","ConfirmPassword":"Password1!"}
-Затем надо запросить токен по адресу “~/Token“. Указав в теле пример:
+Затем надо запросить токен по адресу “/Token“. Указав в теле пример:
 grant_type:password
 username:admin@mail.ru
 password:Adm@123
 будет выглядеть в HTTP как grant_type=password&username=admin%40mail.ru&password=Adm%40123
+
 Теперь указав в Header : Authorization: bearer «Token»
 мы можем получить доступ ко всем API.
 Для проверки работоспособности Web API без сложностей тэг [Authorize] в CurrenciesController надо закомментировать.
